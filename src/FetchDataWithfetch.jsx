@@ -17,7 +17,7 @@ const FetchDataWithfetch = () => {
         .then((data)=>setData(data))
         .catch((error)=>  console.error('Error:',error))
         console.log(Data)
-    },[])
+    },[Data])
     const HandleChange=(e)=>{
         const {name,value}=e.target;
         if(name==='name'){
