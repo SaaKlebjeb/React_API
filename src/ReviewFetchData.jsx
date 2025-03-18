@@ -173,6 +173,8 @@ export default function ReviewFetchData() {
             console.log('Message error:',err);
         }
     }
+    //
+    const SortedData=[...Data].sort((a,b)=>a.name.localeCompare(b.name))
     
   return (
     <>
@@ -203,8 +205,8 @@ export default function ReviewFetchData() {
             </thead>
             <tbody>
                {
-                Data.length>0?(
-                    Data.map((item)=>(
+                SortedData.length>0?(
+                    SortedData.map((item)=>(
                     <tr key={item.id} className="w-full">
                         <td className="text-center px-4 py-3 ">{item.id}</td>
                         <td className="text-center px-4 py-3 ">{item.name}</td>
