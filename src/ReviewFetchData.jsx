@@ -120,6 +120,7 @@ export default function ReviewFetchData() {
                 date:TimeDate
             }
             console.log('User for update',UserForUpdate)
+            
             const UpdatedUser=CurrentData.map((item)=>item.id===EditID?UserForUpdate:item)
             console.log('Updated user',UpdatedUser)
             // save it
@@ -143,6 +144,8 @@ export default function ReviewFetchData() {
 
     //delete
     const HandleDelete=async(id)=>{
+        const confirmed=window.confirm('Are you sure you want to delete?');
+        if(!confirmed) return;
         try{
             const res = await fetch('https://api.jsonbin.io/v3/b/67d238f08960c979a57077c0/latest', {
                 method: 'GET',
@@ -166,8 +169,7 @@ export default function ReviewFetchData() {
                 },
                 body:JSON.stringify({users:DeletedData})
             })
-            setData(DeletedData)
-
+                setData(DeletedData)
         }
         catch(err){
             console.log('Message error:',err);
